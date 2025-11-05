@@ -1,0 +1,34 @@
+@startuml usecase
+actor 学生
+actor 教員
+actor TA
+actor 事務職員
+
+rectangle 学習支援システム {
+  usecase UC1 as "コースのコンテンツを参照する"
+  usecase UC2 as "レポートを提出する"
+  usecase UC3 as "掲示板を参照/更新する"
+
+  usecase UC4 as "コースのコンテンツを更新する"
+  usecase UC5 as "レポートを取得する"
+  usecase UC6 as "レポートを採点する"
+
+  usecase UC7 as "コースを作成する"
+}
+
+学生 -- UC1
+学生 -- UC2
+学生 -- UC3
+
+教員 -- UC1
+教員 -- UC3
+教員 -- UC4
+教員 -- UC5
+教員 -- UC6
+
+TA -- UC1
+TA -- UC3
+TA -- UC5
+
+事務職員 -- UC7
+@enduml

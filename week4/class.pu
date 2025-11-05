@@ -1,0 +1,38 @@
+@startuml class
+skinparam classAttributeIconSize 0
+hide empty members
+
+abstract class Animal {
+  # birthday: Date
+  + get_age(): int
+  + abstract sleep(hour: int): void
+}
+
+class DateUtil {
+  + static days_of_months: list[int]
+  + static calculate_age(day1: Date, day2: Date): int
+  + static today(): Date
+}
+
+class Cat {
+  + size: str
+  + meow(): void
+  + profile(): str
+}
+
+class CalicoCat {
+  - color_pattern: int
+}
+
+class CatKeeper {
+  + name: str
+  + get_name(): str
+}
+
+Animal <|-- Cat
+Cat <|-- CalicoCat
+
+Animal -->  DateUtil
+
+CatKeeper "1 petkeeper" o-- "0..* pet" Cat : keep
+@enduml
